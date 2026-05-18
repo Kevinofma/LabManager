@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      # This maps your local /api directory to the /app directory in the container
+      # meaning any code changes you make update live without rebuilding the container.
+      - .:/app
+    env_file:
+      - .env
